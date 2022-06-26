@@ -18,7 +18,7 @@ closure.addEventListener('click', e => {
       let div = document.createElement('div');
       div.innerHTML = `
     <p>A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical envirnoment).</p>
-    <img src="images/closure_ex1.svg"/>
+    <img src="./images/closure_ex1.svg" alt="code sample"/>
     <p id="output">Output: </p>
     <button>greeting();</button>
     `;
@@ -31,6 +31,7 @@ closure.addEventListener('click', e => {
     closure.querySelector('#output').textContent += `${returnVal} `;
     let img = document.createElement('img');
     img.setAttribute('src', './images/closure_ex2.svg');
+    img.setAttribute('alt', 'code sample');
     closure.append(img);
   } else if (e.target.tagName === 'H1') {
     closure.innerHTML = `<h1>Closure</h1>`;
