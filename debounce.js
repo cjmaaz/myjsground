@@ -1,9 +1,9 @@
 export function getSearchInput() {
     let searchInp = document.querySelector('#debounce input');
-    searchInp.addEventListener('keyup', e => {
-        document.querySelector('#debounce .default').innerText = `Your every keypress: ${searchInp.value}`;
+    searchInp.addEventListener('input', e => {
+        document.querySelector('#debounce .default').innerText = `Your every keypress: ${e.target.value}`;
     });
-    searchInp.addEventListener('keyup', e => debounce(handler, 1000));
+    searchInp.addEventListener('input', e => debounce(handler, 1000));
 }
 
 function handler() {

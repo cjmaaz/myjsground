@@ -1,6 +1,5 @@
 import './style.css'
 import { greeting as greetingFromClosure } from './closure';
-import { getSearchInput } from './debounce';
 
 document.querySelector('#intro').innerHTML = `
   <h1>JS Playground!</h1>
@@ -56,8 +55,32 @@ debounce.addEventListener('click', e => {
         <span class="debounced">Debunced: </span>
       `;
     debounce.append(div);
-    getSearchInput();
+    let img = document.createElement('img');
+    img.setAttribute('src', '/assets/debounce.svg');
+    img.setAttribute('alt', 'code sample');
+    debounce.append(img);
+    let searchInp = document.querySelector('#debounce input');
+    debounceText = document.querySelector('#debounce .debounced');
+    searchInp.addEventListener('input', e => {
+      updateDebouncedtext(e.target.value)
+    })
   } else if (e.target.tagName === 'H1') {
     debounce.innerHTML = `<h1>Debounce</h1>`;
   }
 });
+
+
+// Emulating debounce here because of import
+let debounceText; document.querySelector('#debounce .debounced');
+let updateDebouncedtext = debounceFunc(text => {
+  debounceText.textContent = `Debunced: ${text}`;
+})
+function debounceFunc(cb, delay = 2000) {
+  let timeout;
+  return text => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      cb(text);
+    }, delay)
+  }
+}
