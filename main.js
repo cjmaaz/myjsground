@@ -5,7 +5,7 @@ import { getSearchInput } from './debounce';
 document.querySelector('#intro').innerHTML = `
   <h1>JS Playground!</h1>
   <p>Created by @<a href="https://github.com/cjmaaz" target="_blank">Maaz Rahman</a> for exploring different Basic/Intermediate/Advanced JS topics.</p>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Repository Link</a>
+  <a href="https://github.com/cjmaaz/myjsground" target="_blank">Repository Link</a>
 `;
 
 
