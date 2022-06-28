@@ -56,13 +56,19 @@ debounce.addEventListener('click', e => {
       `;
     debounce.append(div);
     let img = document.createElement('img');
-    img.setAttribute('src', '/assets/debounce.svg');
+    img.setAttribute('src', '/assets/debounceExp.svg');
     img.setAttribute('alt', 'code sample');
     debounce.append(img);
+    let para = document.createElement('p');
+    para.innerHTML = `If you see @line 5 in the above code example, we have called debounce function with callback (handler) and delay passed to it</br>`;
+    para.innerHTML += `You can see Closure working when this function is executed, the console @line 12 prints onlt one time and the inner function remembers its lexical scope (values from the outer scope).</br>`;
+    para.innerHTML += ``
+    debounce.append(para);
     let searchInp = document.querySelector('#debounce input');
     debounceText = document.querySelector('#debounce .debounced');
     searchInp.addEventListener('input', e => {
-      updateDebouncedtext(e.target.value)
+      updateDebouncedtext(e.target.value);
+      document.querySelector('#debounce .default').innerText = `Your every keypress: ${e.target.value}`;
     })
   } else if (e.target.tagName === 'H1') {
     debounce.innerHTML = `<h1>Debounce</h1>`;
@@ -71,7 +77,7 @@ debounce.addEventListener('click', e => {
 
 
 // Emulating debounce here because of import
-let debounceText; document.querySelector('#debounce .debounced');
+let debounceText;
 let updateDebouncedtext = debounceFunc(text => {
   debounceText.textContent = `Debunced: ${text}`;
 })
